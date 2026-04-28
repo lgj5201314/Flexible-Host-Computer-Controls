@@ -1,0 +1,58 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Name="Root"
+             x:Class="PersonalControl.Controls.PopupSideBar">
+    <UserControl.Styles>
+        <!-- 横向样式：底部放置 -->
+        <Style Selector="Button.horizontal">
+            <Setter Property="Width" Value="63"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <StackPanel>
+                        <Grid RowDefinitions="25,5">
+                            <Label Grid.Row="0"
+                                   Content="{TemplateBinding Content}"/>
+                            <Border Grid.Row="1" Name="PARTLayoutRoot" Background="#4D6082"
+                                    CornerRadius="2,2,2,2"/>
+                        </Grid>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.horizontal:pointerover /template/ Border#PARTLayoutRoot">
+            <Setter Property="Background" Value="#007ACC"/>
+        </Style>
+
+        <!-- 竖向样式：侧边放置，Label 文字通过 RotateTransform 竖排 -->
+        <Style Selector="Button.vertical">
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="63"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Grid ColumnDefinitions="5,25">
+                        <Border Name="PARTLayoutRoot" Background="#4D6082"
+                                Grid.Column="0" 
+                                CornerRadius="2,2,2,2"/>
+                        <Label Grid.Column="1" Content="{TemplateBinding Content}" >
+                            <Label.RenderTransform>
+                                <RotateTransform Angle="0"/>
+                            </Label.RenderTransform>
+                            <Label.RenderTransformOrigin>0.5,0.5</Label.RenderTransformOrigin>
+                        </Label>
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.vertical:pointerover /template/ Border#PARTLayoutRoot">
+            <Setter Property="Background" Value="#007ACC"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Button Content="通道选择"
+            Name="PopupButton"
+            Classes="horizontal"/>
+</UserControl>
