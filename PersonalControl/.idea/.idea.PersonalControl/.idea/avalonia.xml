@@ -3,7 +3,7 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
-        <entry key="Control/PopupSideBar.axaml" value="PersonalControl.csproj" />
+        <entry key="Controls/PopupSideBar.axaml" value="PersonalControl.csproj" />
         <entry key="Views/MainWindow.axaml" value="PersonalControl.csproj" />
       </map>
     </option>
